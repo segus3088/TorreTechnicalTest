@@ -18,11 +18,12 @@
     </ul>
 </div>
 <div>
-	{% if user_profile|length > 0 %}
+	{% if user_profile_a|length > 0 %}
 	<h1>Hay usuario</h1>
-	<li> {{ user_profile }}</li>
+	<li> {# {{ user_profile_a }} #}</li>
 	{% else %}
 	<h1>No hay registros</h1>
 	{% endif %}
 </div>
+<div id="userPro"></div>
 {% endblock %}
