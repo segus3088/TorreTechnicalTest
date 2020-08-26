@@ -6,5 +6,7 @@ const userPro = new Vue({
 		return {
 			titulo: "Nombre usuario"
 		}
-	}
+	},
+
+	delimiters: ['${', '}']
 });
