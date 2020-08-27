@@ -9,13 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello to bio of {{ name_user }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/segus/Documentos/TorreTechnicalTest/TorreBio/src/Controller/BioUserController.php'|file_link(0) }}">src/Controller/BioUserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/segus/Documentos/TorreTechnicalTest/TorreBio/templates/bio_user/index.html.twig'|file_link(0) }}">templates/bio_user/index.html.twig</a></code></li>
-    </ul>
+    <h1 class="card-header">Hello to bio of {{ name_user }}! ✅</h1>
 </div>
 <div>
 	{% if user_profile_a|length > 0 %}
@@ -25,7 +19,33 @@
 	<h1>No hay registros</h1>
 	{% endif %}
 </div>
-<div id="userPro">
-	${ titulo }
+<div id="userPro" class="card" style="width: 80%;">
+	<img src="{{url_imgBio}}" class="card-img-top" alt="...">
+	<div class="card-body">
+		<h5 class="card-title">Welcome to bio of {{ name_user }}</h5>
+		<p class="card-text"> {{name_proHead}}</p>
+	</div>
+	<div class="accordion">
+		{% for exp in user_exp %}
+		<div class="card">
+			<div class="card-header" id={{exp.id|e}}>
+				<h2 class="mb-0">
+					<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						{{ exp.name|e }}
+					</button>
+				</h2>
+			</div>
+
+			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+				<div class="card-body">
+					<li>Categoria: {{ exp.category|e}}</li>
+					<li>Empresa: {{ exp["organizations"][0]["name"] }}</li>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<h1> ${ titulo } </h1>
+	<p> ${ dataU } </p>
 </div>
 {% endblock %}

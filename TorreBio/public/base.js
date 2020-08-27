@@ -4,9 +4,16 @@ const userPro = new Vue({
 
 	data(){
 		return {
-			titulo: "Nombre usuario"
+			titulo: "Nombre usuario",
+			dataU: '{{ user_profile_a}}'
 		}
 	},
 
-	delimiters: ['${', '}']
+	delimiters: ['${', '}'],
+
+	methods: {
+		nextExp: function() {
+			//roteate bio exp
+		}
+	}
 });

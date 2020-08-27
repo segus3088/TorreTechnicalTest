@@ -21,9 +21,13 @@ class BioUserController extends AbstractController
     	//var_dump($bioObj);
         return $this->render('bio_user/index.html.twig', [
             'controller_name' => 'BioUserController',
-            'name_user' => 'Sebastian Salazar',
+            'name_user' => $bioData["person"]["name"],
+            'name_proHead' => $bioData["person"]["professionalHeadline"],
+            'url_imgBio' => $bioData["person"]["picture"],
             'user_profile_a' => $bioData,
-            'user_profile_raw' => $bio,
+            'user_profile_raw' => $bio2,
+            'user_profile_j' => json_encode($bio2),
+            'user_exp' => $bioData["experiences"],
         ]);
     }
 
